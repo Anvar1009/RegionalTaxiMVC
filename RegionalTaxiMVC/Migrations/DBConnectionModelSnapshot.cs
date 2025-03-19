@@ -10,7 +10,7 @@ using RegionalTaxiMVC.DB_Regtaxi;
 
 namespace RegionalTaxiMVC.Migrations
 {
-    [DbContext(typeof(DBConnection))]
+    [DbContext(typeof(RegTaxiDBContext))]
     partial class DBConnectionModelSnapshot : ModelSnapshot
     {
         protected override void BuildModel(ModelBuilder modelBuilder)
@@ -50,20 +50,14 @@ namespace RegionalTaxiMVC.Migrations
                     b.Property<DateOnly>("Birth_date")
                         .HasColumnType("date");
 
-                    b.Property<int>("BrandId")
-                        .HasColumnType("integer");
-
-                    b.Property<int>("Brand_Id")
+                    b.Property<int?>("BrandId")
                         .HasColumnType("integer");
 
                     b.Property<string>("Car_color")
                         .IsRequired()
                         .HasColumnType("text");
 
-                    b.Property<int>("ModelId")
-                        .HasColumnType("integer");
-
-                    b.Property<int>("Model_Id")
+                    b.Property<int?>("ModelId")
                         .HasColumnType("integer");
 
                     b.Property<string>("Name")
@@ -109,15 +103,11 @@ namespace RegionalTaxiMVC.Migrations
                 {
                     b.HasOne("RegionalTaxiMVC.Models.Brands", "Brand")
                         .WithMany()
-                        .HasForeignKey("BrandId")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
+                        .HasForeignKey("BrandId");
 
                     b.HasOne("RegionalTaxiMVC.Models.Modelss", "Model")
                         .WithMany()
-                        .HasForeignKey("ModelId")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
+                        .HasForeignKey("ModelId");
 
                     b.Navigation("Brand");
 

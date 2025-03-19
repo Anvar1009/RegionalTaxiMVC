@@ -1,8 +1,10 @@
-﻿namespace RegionalTaxiMVC.Models
+﻿using RegionalTaxiMVC.Repositories.Interfaces;
+
+namespace RegionalTaxiMVC.Models
 {
-    public class Brands
+    public class Brands:IEntity<int>
     {
-        public int Id { get; set; }
+        public int Id { get; init; }
         public string Name { get; set; }
     }
 }

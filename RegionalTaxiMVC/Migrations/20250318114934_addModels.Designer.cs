@@ -11,7 +11,7 @@ using RegionalTaxiMVC.DB_Regtaxi;
 
 namespace RegionalTaxiMVC.Migrations
 {
-    [DbContext(typeof(DBConnection))]
+    [DbContext(typeof(RegTaxiDBContext))]
     [Migration("20250318114934_addModels")]
     partial class addModels
     {

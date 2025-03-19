@@ -12,10 +12,10 @@ namespace RegionalTaxiMVC.Repositories
         protected DbContext Context { get; } = context;
 
 
-        public IQueryable<T> GetAll(Expression<Func<T, bool>>? predicate = null, bool tracked = true,
+        public  IQueryable<T> GetAll(Expression<Func<T, bool>>? predicate = null, bool tracked = true,
             bool ignoreQueryFilters = false)
         {
-            IQueryable<T> query = Context.Set<T>();
+            IQueryable<T> query =  Context.Set<T>();
 
             if (predicate is not null)
             {
