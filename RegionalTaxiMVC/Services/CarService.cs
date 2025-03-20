@@ -11,14 +11,13 @@ namespace RegionalTaxiMVC.Services
         {
             _carRepository = carRepository;
         }
-        public async Task<List<Cars>> GetAllCarsAsync()
+        public async Task<IEnumerable<Cars>> GetAllCarsAsync()
         {
             try
             {
-                var result = _carRepository.GetAll(tracked:true);   
-                var cars = new List<Cars>();
-                cars= result.ToList();  
-                return cars;
+                var result = _carRepository.GetAll(tracked:true,ignoreQueryFilters:false);   
+                
+                return result;
             }
             catch (Exception ex) 
             {

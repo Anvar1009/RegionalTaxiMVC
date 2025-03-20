@@ -19,7 +19,7 @@ namespace RegionalTaxiMVC.Repositories
 
             if (predicate is not null)
             {
-                query = query.Where(predicate);
+                query =  query.Where(predicate);
             }
 
             if (!tracked)

@@ -15,9 +15,9 @@ namespace RegionalTaxiMVC.Controllers
             return View();
         }
 
-        public  IActionResult GetAllCar()
+        public async Task<IActionResult> GetAllCar()
         {
-            var result = _carServices.GetAllCarsAsync();
+            var result = await _carServices.GetAllCarsAsync();
             return View(result);
         }
     }
