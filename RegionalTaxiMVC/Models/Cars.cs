@@ -15,5 +15,6 @@ namespace RegionalTaxiMVC.Models
         public Modelss? Model { get; set; }
         public Brands? Brand { get; set; }
         public int Price { get; set; }
+        public string state_number { get; set; }
     }
 }

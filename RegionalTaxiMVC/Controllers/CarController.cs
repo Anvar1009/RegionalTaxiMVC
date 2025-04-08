@@ -1,4 +1,6 @@
 ﻿using Microsoft.AspNetCore.Mvc;
+using Microsoft.EntityFrameworkCore;
+using RegionalTaxiMVC.Models;
 using RegionalTaxiMVC.Services.Interfaces;
 
 namespace RegionalTaxiMVC.Controllers
@@ -14,11 +16,22 @@ namespace RegionalTaxiMVC.Controllers
         {
             return View();
         }
-
+        [HttpGet]
         public async Task<IActionResult> GetAllCar()
         {
             var result = await _carServices.GetAllCarsAsync();
             return View(result);
+        }
+
+        public IActionResult Create()
+        {
+            return View();
+        }
+        [HttpPost]
+        public IActionResult Create(Cars car)
+        {
+           
+            return View(car); 
         }
     }
 }
