@@ -74,5 +74,17 @@ namespace RegionalTaxiMVC.Services
                 throw new Exception(ex.Message);
             }
         }
+
+        public async Task Delete(Cars cars)
+        {
+            try
+            {
+                await _carRepository.Remove(cars);
+            }
+            catch (Exception ex)
+            {
+                throw new Exception(ex.Message);
+            }
+        }
     }
 }

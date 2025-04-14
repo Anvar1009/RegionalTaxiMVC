@@ -354,9 +354,10 @@
                                         <a href="@Url.Action("Edit", "Car", new { id = car.Id })" class="btn btn-sm btn-primary">
                                             <i class="fas fa-edit"></i> Tahrirlash
                                         </a>
-                                        <a href="@Url.Action("Delete", "Car", new { id = car.Id })" class="btn btn-sm btn-danger">
+                                        <a href="#" class="btn btn-sm btn-danger" data-bs-toggle="modal" data-bs-target="#deleteModal" data-id="@car.Id">
                                             <i class="fas fa-trash-alt"></i> O'chirish
                                         </a>
+
                                     </td>
                                     
                                     
@@ -378,6 +379,27 @@
                         <span class="float-none float-sm-right d-block mt-1 mt-sm-0 text-center">Hand-crafted & made with <i class="mdi mdi-heart text-danger"></i></span>
                     </div>
                 </footer>
+                <!-- Delete Confirmation Modal -->
+                <div class="modal fade" id="deleteModal" tabindex="-1" aria-labelledby="deleteModalLabel" aria-hidden="true">
+                    <div class="modal-dialog modal-dialog-centered">
+                        <div class="modal-content">
+                            <div class="modal-header bg-danger text-white">
+                                <h5 class="modal-title" id="deleteModalLabel">O'chirishni tasdiqlaysizmi?</h5>
+                                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Yopish"></button>
+                            </div>
+                            <div class="modal-body">
+                                Siz bu mashinani o'chirmoqchimisiz? Ushbu amal qaytarilmaydi.
+                            </div>
+                            <div class="modal-footer">
+                                <form id="deleteForm" method="post">
+                                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Bekor qilish</button>
+                                    <button type="submit" class="btn btn-danger">Ha, o'chir</button>
+                                </form>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
                 <!-- partial -->
             </div>
             <!-- main-panel ends -->
@@ -398,6 +420,17 @@
     <script src="~/assets/js/settings.js"></script>
     <script src="~/assets/js/todolist.js"></script>
     <script src="~/assets/js/jquery.cookie.js"></script>
+    <script>
+        var deleteModal = document.getElementById('deleteModal');
+        deleteModal.addEventListener('show.bs.modal', function (event) {
+            var button = event.relatedTarget;
+            var carId = button.getAttribute('data-id');
+
+            var form = document.getElementById('deleteForm');
+            form.action = '/Car/Delete/' + carId; // bu controllerdagi Delete action manzili
+        });
+    </script>
+
     <!-- endinject -->
     <!-- Custom js for this page -->
     <script src="~/assets/js/dashboard.js"></script>

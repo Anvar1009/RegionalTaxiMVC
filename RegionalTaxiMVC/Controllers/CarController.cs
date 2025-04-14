@@ -73,5 +73,23 @@ namespace RegionalTaxiMVC.Controllers
                 throw new Exception(ex.Message);
             }
         }
+
+        public async Task<IActionResult> Delete(int id)
+        {
+            try
+            {
+                var car = await _carServices.GetByID(id);
+                if (car == null)
+                {
+                    return NotFound();
+                }
+                await _carServices.Delete(car);
+                return RedirectToAction("GetAllCar");
+            }
+            catch (Exception ex)
+            {
+                throw new Exception(ex.Message);
+            }
+        }
     }
 }
