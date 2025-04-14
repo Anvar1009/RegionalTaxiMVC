@@ -35,7 +35,8 @@ namespace RegionalTaxiMVC.Controllers
             {
                 var result = _carServices.CreateCarModel(car);
 
-                return View("Create");
+                return RedirectToAction("GetAllCar");
+
             }
             catch (Exception ex)
             {
@@ -43,16 +44,29 @@ namespace RegionalTaxiMVC.Controllers
             }
              
         }
-        public IActionResult Edit(int id)
+        public async Task< IActionResult> Edit(int id)
         {
-            return View("Edit");
+            var car = await _carServices.GetByID(id);
+            if (car == null)
+            {
+                return NotFound();
+            }
+            return View(car);
         }
         [HttpPost]
-        public IActionResult Edit(Cars cars) 
+        public async Task< IActionResult> Edit(Cars cars) 
         {
             try
             {
-                return View("GetAllCar");
+                if (cars == null)
+                {
+                    return NotFound();
+                }
+
+                await _carServices.Edit(cars);
+
+                return RedirectToAction("GetAllCar");
+
             }
             catch (Exception ex)
             {

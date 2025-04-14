@@ -47,5 +47,31 @@ namespace RegionalTaxiMVC.Services
                 throw new Exception(ex.Message);
             }
         }
+
+        public async Task<Cars> GetByID(int id)
+        {
+            try
+            {
+                var result = await _carRepository.GetById(id, cancellationToken: default);
+                return result;
+            }
+            catch(Exception ex)
+            {
+                throw new Exception(ex.Message);
+            }
+        }
+
+        public async Task Edit(Cars car)
+        {
+            try
+            {
+                await _carRepository.Update(car, cancellationToken: default);
+
+            }
+            catch (Exception ex)
+            {
+                throw new Exception(ex.Message);
+            }
+        }
     }
 }

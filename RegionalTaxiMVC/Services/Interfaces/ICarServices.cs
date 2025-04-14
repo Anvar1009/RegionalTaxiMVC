@@ -7,5 +7,7 @@ namespace RegionalTaxiMVC.Services.Interfaces
     {
         Task<IEnumerable<Cars>> GetAllCarsAsync();
         Task CreateCarModel(CreateCarDTO createCarDTO);
+        Task Edit(Cars car);
+        Task<Cars> GetByID(int id);
     }
 }
