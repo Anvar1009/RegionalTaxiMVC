@@ -1,4 +1,5 @@
 ﻿using RegionalTaxiMVC.Models;
+using RegionalTaxiMVC.Models.CarDTO;
 using RegionalTaxiMVC.Repositories.Interfaces;
 using RegionalTaxiMVC.Services.Interfaces;
 
@@ -11,6 +12,28 @@ namespace RegionalTaxiMVC.Services
         {
             _carRepository = carRepository;
         }
+
+        public  Task CreateCarModel(CreateCarDTO createCarDTO)
+        {
+            var CarModel = new Cars
+            {
+                Name = createCarDTO.Name,
+                Birth_date = createCarDTO.Birth_date,
+                Brand = createCarDTO.Brand,
+                Car_color = createCarDTO.Car_color,
+                Person_size = createCarDTO.Person_size, 
+                Price = createCarDTO.Price, 
+                Model = createCarDTO.Model, 
+                condions = createCarDTO.condions,
+                state_number = createCarDTO.state_number
+
+            };
+
+            var result =  _carRepository.Add(CarModel);
+
+            return Task.CompletedTask;  
+        }
+
         public async Task<IEnumerable<Cars>> GetAllCarsAsync()
         {
             try

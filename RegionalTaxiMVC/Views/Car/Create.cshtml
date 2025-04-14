@@ -228,7 +228,7 @@
                     <li class="nav-item">
                         <a class="nav-link" href="@Url.Action("GetAllCar", "Car")">
                             <span class="menu-title">Barcha mashinalar</span>
-                            <i class="mdi mdi-contacts menu-icon"></i>
+                            <i class="mdi mdi-taxi menu-icon"></i>
                         </a>
                         <div class="collapse" id="icons">
                             <ul class="nav flex-column sub-menu">
@@ -313,58 +313,68 @@
             </nav>
             <!-- partial -->
             <div class="main-panel">
-                <div class="card-body" style="display: flex; justify-content: center; align-items: center; height: auto;">
-                    <div class="container">
+                <div class="card-body" style="display: flex; justify-content: flex-start; align-items: end center; height: auto;">
+                    <div class="container" style="justify-content :center ">
                         <h2>Yangi Mashina Qo‘shish</h2>
 
                         <form asp-action="Create" method="post" class="align-content-lg-center">
-                            <div>
+                            <div style="margin-top: 20px;">
                                 <label class="form-label">Nomi</label>
-                                <div class="col-1">
+                                <div class="col-2">
                                     <input asp-for="Name" class="form-control" />
                                     <span asp-validation-for="Name" class="text-danger"></span>
                                 </div>
                             </div>
 
-                            <div>
+                            <div style="margin-top: 20px;">
                                 <label class="form-label">Rangi</label>
-                                <div class="col-1">
+                                <div class="col-2">
                                     <input asp-for="Car_color" class="form-control" />
                                     <span asp-validation-for="Car_color" class="text-danger"></span>
                                 </div>
                             </div>
 
-                            <div class="mb-3">
+                            <div class="mb-3" style="margin-top: 20px;">
                                 <label class="form-label">Yili</label>
-                                <div class="col-1">
+                                <div class="col-2">
                                     <input asp-for="Birth_date" class="form-control" type="date" />
                                     <span asp-validation-for="Birth_date" class="text-danger"></span>
                                 </div>
                             </div>
-                            <div>
+                            <div style="margin-top: 20px;">
                                 <label class="form-label">Joriy narxi</label>
-                                <div class="col-1">
+                                <div class="col-2">
                                     <input asp-for="Price" class="form-control" />
                                     <span asp-validation-for="Price" class="text-danger"></span>
                                 </div>
                             </div>
-                            <div>
+                            <div style="margin-top: 20px;">
                                 <label class="form-label">Odam sigimi</label>
-                                <div class="col-1">
+                                <div class="col-2">
                                     <input asp-for="Person_size" class="form-control" type="number" />
                                     <span asp-validation-for="Person_size" class="text-danger"></span>
                                 </div>
                             </div>
-                            <div>
-                                <label class="form-label">Xolati</label>
-                                <div class="col-1">
-                                    <input asp-for="condions" class="form-control" type="number" />
+                            <div style="margin-top: 20px;">
+                                <label asp-for="condions" class="form-label">Xolati</label>
+                                <div class="col-2">
+                                    <select asp-for="condions" asp-items="Html.GetEnumSelectList<RegionalTaxiMVC.Models.ConditionsLevel>()" class="form-select"></select>
                                     <span asp-validation-for="condions" class="text-danger"></span>
                                 </div>
+                                
                             </div>
+                            <div style="margin-top:20px;">
+                                <label class="form-label">Davlat Raqami</label>
+                                <div class="col-2">
+                                    <input asp-for="state_number" class="form-control" />
+                                    <span asp-validation-for="state_number" class="text-danger"></span>
+                                </div>
+                            </div>
+                            
 
-                            <button type="submit" class="btn btn-primary">Saqlash</button>
-                            <a asp-action="GetAllCar" class="btn btn-danger">Orqaga</a>
+
+                            <button type="submit" class="btn btn-primary" style="margin-top: 20px;">Saqlash</button>
+                            <a asp-action="GetAllCar" class="btn btn-danger" style="margin-top: 20px;">Orqaga</a>
                         </form>
                     </div>
                 </div>
