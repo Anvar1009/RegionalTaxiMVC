@@ -257,7 +257,7 @@
                                 <div style="margin-top: 20px;">
                                     <label asp-for="Brand" class="form-label">Brand</label>
                                     <div class="col-2">
-                                        <select asp-for="Brand" asp-items="Html.GetEnumSelectList<RegionalTaxiMVC.Models.Brands>()" class="form-select"></select>
+                                        <select asp-for="Brand" asp-items="Html.GetEnumSelectList<Brands>()" class="form-select"></select>
                                         <span asp-validation-for="Brand" class="text-danger"></span>
                                     </div>
                                 </div>
@@ -265,7 +265,7 @@
                                 <div style="margin-top: 20px;">
                                     <label asp-for="Car_color" class="form-label">Rangi</label>
                                     <div class="col-2">
-                                        <select asp-for="Car_color" asp-items="Html.GetEnumSelectList<RegionalTaxiMVC.Models.CarColor>()" class="form-select"></select>
+                                        <select asp-for="Car_color" asp-items="Html.GetEnumSelectList<CarColor>()" class="form-select"></select>
                                         <span asp-validation-for="Car_color" class="text-danger"></span>
                                     </div>
                                 </div>
@@ -294,14 +294,14 @@
                                 <div style="margin-top: 20px;">
                                     <label asp-for="condions" class="form-label">Xolati</label>
                                     <div class="col-2">
-                                        <select asp-for="condions" asp-items="Html.GetEnumSelectList<RegionalTaxiMVC.Models.ConditionsLevel>()" class="form-select"></select>
+                                        <select asp-for="condions" asp-items="Html.GetEnumSelectList<ConditionsLevel>()" class="form-select"></select>
                                         <span asp-validation-for="condions" class="text-danger"></span>
                                     </div>
                                 </div>
                                 <div style="margin-top: 20px;">
                                     <label asp-for="Car_type" class="form-label">Turi</label>
                                     <div class="col-2">
-                                        <select asp-for="Car_type" asp-items="Html.GetEnumSelectList<RegionalTaxiMVC.Models.CarType>()" class="form-select"></select>
+                                        <select asp-for="Car_type" asp-items="Html.GetEnumSelectList<CarType>()" class="form-select"></select>
                                         <span asp-validation-for="Car_type" class="text-danger"></span>
                                     </div>
                                 </div>

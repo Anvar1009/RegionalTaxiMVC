@@ -1,4 +1,4 @@
-﻿namespace RegionalTaxiMVC.Models
+﻿namespace RegionalTaxiMVC.Models.constants
 {
     public enum CarType
     {

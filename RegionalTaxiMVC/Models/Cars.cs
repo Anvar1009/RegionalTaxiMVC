@@ -1,4 +1,5 @@
 ﻿using System.ComponentModel.DataAnnotations;
+using RegionalTaxiMVC.Models.constants;
 using RegionalTaxiMVC.Repositories.Interfaces;
 
 namespace RegionalTaxiMVC.Models

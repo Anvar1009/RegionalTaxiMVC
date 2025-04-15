@@ -1,4 +1,5 @@
 ﻿using System.ComponentModel.DataAnnotations;
+using RegionalTaxiMVC.Models.constants;
 
 namespace RegionalTaxiMVC.Models.CarDTO
 {
