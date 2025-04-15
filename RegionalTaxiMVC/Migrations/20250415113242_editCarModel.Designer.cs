@@ -2,6 +2,7 @@
 using System;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using Npgsql.EntityFrameworkCore.PostgreSQL.Metadata;
 using RegionalTaxiMVC.DB_Regtaxi;
@@ -11,9 +12,11 @@ using RegionalTaxiMVC.DB_Regtaxi;
 namespace RegionalTaxiMVC.Migrations
 {
     [DbContext(typeof(RegTaxiDBContext))]
-    partial class DBConnectionModelSnapshot : ModelSnapshot
+    [Migration("20250415113242_editCarModel")]
+    partial class editCarModel
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        /// <inheritdoc />
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -21,6 +24,23 @@ namespace RegionalTaxiMVC.Migrations
                 .HasAnnotation("Relational:MaxIdentifierLength", 63);
 
             NpgsqlModelBuilderExtensions.UseIdentityByDefaultColumns(modelBuilder);
+
+            modelBuilder.Entity("RegionalTaxiMVC.Models.Brands", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("integer");
+
+                    NpgsqlPropertyBuilderExtensions.UseIdentityByDefaultColumn(b.Property<int>("Id"));
+
+                    b.Property<string>("Name")
+                        .IsRequired()
+                        .HasColumnType("text");
+
+                    b.HasKey("Id");
+
+                    b.ToTable("brands");
+                });
 
             modelBuilder.Entity("RegionalTaxiMVC.Models.Cars", b =>
                 {
@@ -33,13 +53,16 @@ namespace RegionalTaxiMVC.Migrations
                     b.Property<DateOnly>("Birth_date")
                         .HasColumnType("date");
 
-                    b.Property<int>("Brand")
+                    b.Property<int?>("BrandId")
                         .HasColumnType("integer");
 
                     b.Property<int>("Car_color")
                         .HasColumnType("integer");
 
                     b.Property<int>("Car_type")
+                        .HasColumnType("integer");
+
+                    b.Property<int?>("ModelId")
                         .HasColumnType("integer");
 
                     b.Property<string>("Name")
@@ -61,6 +84,10 @@ namespace RegionalTaxiMVC.Migrations
 
                     b.HasKey("Id");
 
+                    b.HasIndex("BrandId");
+
+                    b.HasIndex("ModelId");
+
                     b.ToTable("Cars");
                 });
 
@@ -79,6 +106,21 @@ namespace RegionalTaxiMVC.Migrations
                     b.HasKey("Id");
 
                     b.ToTable("modelsses");
+                });
+
+            modelBuilder.Entity("RegionalTaxiMVC.Models.Cars", b =>
+                {
+                    b.HasOne("RegionalTaxiMVC.Models.Brands", "Brand")
+                        .WithMany()
+                        .HasForeignKey("BrandId");
+
+                    b.HasOne("RegionalTaxiMVC.Models.Modelss", "Model")
+                        .WithMany()
+                        .HasForeignKey("ModelId");
+
+                    b.Navigation("Brand");
+
+                    b.Navigation("Model");
                 });
 #pragma warning restore 612, 618
         }

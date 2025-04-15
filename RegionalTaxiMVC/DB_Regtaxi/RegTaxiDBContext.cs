@@ -13,7 +13,6 @@ namespace RegionalTaxiMVC.DB_Regtaxi
 
         public DbSet<Cars> Cars { get; set; }
         public DbSet<Modelss> modelsses { get; set; }
-        public DbSet<Brands> brands { get; set; }
     }
     public class RegTaxiDBContextFactory : IDesignTimeDbContextFactory<RegTaxiDBContext>
     {

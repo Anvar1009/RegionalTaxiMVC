@@ -107,6 +107,30 @@
 /* === Import template variables === */
 /*-------------------------------------------------------------------*/
 /* === SCSS Compass Functions === */
+/* Umumiy fon rangini ko'k qilish */
+body, .container-scroller, .page-body-wrapper, .main-panel {
+    background-color: #000080; /* Navy blue */
+}
+
+/* Navbar uchun */
+.navbar {
+    background-color: #000080; /* Ko'k rang */
+}
+
+/* Sidebar uchun */
+.sidebar {
+    background-color: #000080; /* Ko'k rang */
+}
+
+/* Kartalar uchun */
+.card {
+    background-color: #1c2526; /* Bir oz ochiqroq ko'k yoki boshqa kontrast rang */
+}
+
+/* Footer uchun */
+.footer {
+    background-color: #000080; /* Ko'k rang */
+}
 @-moz-keyframes flash {
   0% {
     opacity: 1;

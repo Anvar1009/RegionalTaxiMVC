@@ -23,7 +23,6 @@ namespace RegionalTaxiMVC.Services
                 Car_color = createCarDTO.Car_color,
                 Person_size = createCarDTO.Person_size, 
                 Price = createCarDTO.Price, 
-                Model = createCarDTO.Model, 
                 condions = createCarDTO.condions,
                 state_number = createCarDTO.state_number
 

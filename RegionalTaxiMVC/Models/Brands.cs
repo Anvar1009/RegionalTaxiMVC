@@ -2,9 +2,18 @@
 
 namespace RegionalTaxiMVC.Models
 {
-    public class Brands:IEntity<int>
+    public enum Brands
     {
-        public int Id { get; init; }
-        public string Name { get; set; }
+       Chevrolet,
+       KIA,
+       Hundai,
+       BYD,
+       Cherry,
+       Li,
+       Leampmotor,
+       Mersedes,
+       BMW,
+       JAC
+
     }
 }

@@ -255,9 +255,17 @@
                                 </div>
 
                                 <div style="margin-top: 20px;">
-                                    <label class="form-label">Rangi</label>
+                                    <label asp-for="Brand" class="form-label">Brand</label>
                                     <div class="col-2">
-                                        <input asp-for="Car_color" class="form-control" />
+                                        <select asp-for="Brand" asp-items="Html.GetEnumSelectList<RegionalTaxiMVC.Models.Brands>()" class="form-select"></select>
+                                        <span asp-validation-for="Brand" class="text-danger"></span>
+                                    </div>
+                                </div>
+
+                                <div style="margin-top: 20px;">
+                                    <label asp-for="Car_color" class="form-label">Rangi</label>
+                                    <div class="col-2">
+                                        <select asp-for="Car_color" asp-items="Html.GetEnumSelectList<RegionalTaxiMVC.Models.CarColor>()" class="form-select"></select>
                                         <span asp-validation-for="Car_color" class="text-danger"></span>
                                     </div>
                                 </div>
@@ -289,7 +297,13 @@
                                         <select asp-for="condions" asp-items="Html.GetEnumSelectList<RegionalTaxiMVC.Models.ConditionsLevel>()" class="form-select"></select>
                                         <span asp-validation-for="condions" class="text-danger"></span>
                                     </div>
-
+                                </div>
+                                <div style="margin-top: 20px;">
+                                    <label asp-for="Car_type" class="form-label">Turi</label>
+                                    <div class="col-2">
+                                        <select asp-for="Car_type" asp-items="Html.GetEnumSelectList<RegionalTaxiMVC.Models.CarType>()" class="form-select"></select>
+                                        <span asp-validation-for="Car_type" class="text-danger"></span>
+                                    </div>
                                 </div>
                                 <div style="margin-top:20px;">
                                     <label class="form-label">Davlat Raqami</label>

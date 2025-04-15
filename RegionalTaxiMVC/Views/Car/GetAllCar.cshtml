@@ -322,9 +322,10 @@
                 </ul>
             </nav>
             <!-- partial -->
+            <br />
             <div class="main-panel">
                 <div class="card-body">
-                    <h4 class="card-title"> Barcha mashinalar</h4>
+                    <h2 class="card-title"> Barcha avtomobillar ro'yxati </h2>
                    <p>
 
                    </p>
@@ -333,10 +334,12 @@
                             <tr>
                                 <th>#</th>
                                 <th>Nomi</th>
+                                <th>Brand</th>
                                 <th>Ishlab chiqarilgan sanasi</th>
                                 <th>Odam sig'imi</th>
                                 <th>Rangi</th>
                                 <th>Holati</th>
+                                <th>Turi</th>
                                 <th>Tan narxi</th>
                                 <th>Davlat raqami</th>
                                 <th>Amallar</th>
@@ -348,6 +351,7 @@
                                 <tr>
                                     <td>@car.Id</td>
                                     <td>@car.Name</td>
+                                    <td>@car.Brand</td>
                                     <td>@car.Birth_date.ToString("yyyy-MM-dd")</td>
                                     <td>@car.Person_size</td>
                                     <td>@car.Car_color</td>
@@ -358,8 +362,11 @@
                                         }
                                         else
                                         {
-                                            <span class="badge bg-warning">Ishlatilgan</span>
+                                            <span class="badge bg-warning">xaydalgan</span>
                                         }
+                                    </td>
+                                    <td>
+                                        @car.Car_type
                                     </td>
                                     <td>@string.Format("{0:C}", car.Price)</td>
                                     <td>@car.state_number</td>
